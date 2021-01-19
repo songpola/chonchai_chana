@@ -1,10 +1,9 @@
 import 'package:chonchai_chana/constants.dart';
+import 'package:chonchai_chana/widgets/covid_info_item.dart';
+import 'package:chonchai_chana/widgets/my_header.dart';
 import 'package:chonchai_chana/widgets/symptom_card.dart';
-import 'package:expansion_card/expansion_card.dart';
-import 'file:///D:/_Dev/_Flutter/chonchai_chana/lib/widgets/my_header.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -225,47 +224,6 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CovidInfoItem extends StatelessWidget {
-  final String title;
-  final String info;
-
-  const CovidInfoItem({
-    Key key,
-    this.title,
-    this.info,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ExpansionCard(
-        leading: Icon(Icons.info_outline, color: Colors.black),
-        title: Container(
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.headline5,
-          ),
-        ),
-        children: [
-          Divider(
-            indent: 16.0,
-            endIndent: 16.0,
-            height: 16.0,
-            color: Colors.blue,
-            thickness: 3.0,
-          ),
-          Container(
-            padding: const EdgeInsets.only(left: 24.0),
-            child: Text(
-              info,
-            ),
-          ),
-        ],
       ),
     );
   }
