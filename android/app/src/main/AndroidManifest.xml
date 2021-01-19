@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.songpola.flutter.chonchai_chana">
    <application
-        android:label="chonchai_chana"
+        android:label="ชลชายชนะ"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
