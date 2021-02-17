@@ -5,6 +5,7 @@ import 'package:chonchai_chana/widgets/symptom_card.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MainApp());
@@ -59,6 +60,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  _launchFormURL() async {
+    const url = 'https://docs.google.com/forms/d/e/1FAIpQLScQTZtmq_B-NaBzmpSIHNnZv8Vi2681LxwgBrNEj_5kLVSTxQ/viewform';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -213,7 +224,23 @@ class _HomePageState extends State<HomePage> {
                         "• วิกฤตโลกในครั้งนี้ต้องการประสารงาน ความเป็นอันหนึ่งอันเดียวกัน และ นโยบายทางเศรษฐกิจ สังคมและสาธารณสุขที่มีประสิทธิภาพ",
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 32.0),
+                    margin: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Center(
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 24.0),
+                          textStyle: Theme.of(context)
+                              .textTheme
+                              .headline5
+                              .copyWith(color: Colors.black),
+                        ),
+                        onPressed: () => _launchFormURL(),
+                        child: Text("แบบประเมินความพึงพอใจ"),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 16.0),
                     child: Text(
                       "อ้างอิง:\n"
                       "https://www.who.int/thailand/emergencies/novel-coronavirus-2019/q-a-on-covid-19",
